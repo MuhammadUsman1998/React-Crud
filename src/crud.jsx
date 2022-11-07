@@ -88,6 +88,7 @@ function CRUD() {
         // debugger;
         // const dataArray = Object.values(data);
         setItems(loadedUsers);
+        console.log(loadedUsers);
       } catch (error) {}
     };
     getData();
@@ -98,7 +99,8 @@ function CRUD() {
     const { fname, lname, profession, age } = inputText;
     try {
       await fetch(
-        "https://crud-database-86446-default-rtdb.firebaseio.com/users.json",
+        // "https://crud-database-86446-default-rtdb.firebaseio.com/users.json",
+        "https://crud-with-redux-dda11-default-rtdb.firebaseio.com/users.json",
 
         {
           method: "POST",
@@ -120,6 +122,7 @@ function CRUD() {
         profession: "",
         age: "",
       });
+      console.log(inputText);
       alert("data stored");
     } catch (error) {
       alert("plz fill data");
@@ -129,7 +132,8 @@ function CRUD() {
   const deleteItems = async (id) => {
     await axios
       .delete(
-        `https://crud-database-86446-default-rtdb.firebaseio.com/users/${id}.json`
+        // `https://crud-database-86446-default-rtdb.firebaseio.com/users/${id}.json`
+        `https://crud-with-redux-dda11-default-rtdb.firebaseio.com/users/${id}.json`
       )
       .then((res) => {
         if (res.status !== 200) {
@@ -150,7 +154,8 @@ function CRUD() {
     console.log("id from update", id);
     await axios
       .put(
-        `https://crud-database-86446-default-rtdb.firebaseio.com/users/${id}.json`,
+        `https://crud-with-redux-dda11-default-rtdb.firebaseio.com/users/${id}.json`,
+        // `https://crud-database-86446-default-rtdb.firebaseio.com/users/${id}.json`,
         inputText
       )
       .then((res) => {
